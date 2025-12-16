@@ -1,6 +1,6 @@
 from easygui import *
 import random
-
+## wtf
 tegelane = enterbox("Sisestage oma tegelase nimi:")
 tugevus = integerbox("Sisestage oma tegelase tugevus:", lowerbound = 1, upperbound = 50)
 elupunkt = integerbox("Sisestage oma tegelase elu punktid:", lowerbound = 1, upperbound = 100)
