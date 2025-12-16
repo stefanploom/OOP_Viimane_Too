@@ -1,4 +1,5 @@
 from easygui import *
+import random
 
 tegelane = enterbox("Sisestage oma tegelase nimi:")
 tugevus = integerbox("Sisestage oma tegelase tugevus:", lowerbound = 1, upperbound = 50)
@@ -8,10 +9,6 @@ if tegelane == None or tugevus == None or elupunkt == None or tegelane == "":
 else:
     msgbox(tegelane + " Tugevus: " + str(tugevus) + " Elupunktid: " + str(elupunkt))
     
-
-liikumine = ["otse", "paremale", "vasakule", "tagasi"]
-vajutati = buttonbox("Valige kuhu liikuda: ", choices = liikumine)
-liikumine = ["otse", "paremale", "vasakule", "tagasi"]
-vajutati = buttonbox("Liikusite ", choices = liikumine)
-liikumine = ["otse", "paremale", "vasakule", "tagasi"]
-vajutati = buttonbox("Liikusite ", choices = liikumine)
+for _ in iter(int, 1):
+    liikumine = ["otse", "paremale", "vasakule", "tagasi"]
+    vajutati = buttonbox("Valige kuhu liikuda: ", choices = liikumine)
