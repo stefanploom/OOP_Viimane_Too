@@ -11,15 +11,13 @@ else:
     
 for _ in iter(int, 1):
     liikumine = ["otse", "paremale", "vasakule", "tagasi"]
-    vajutati = buttonbox("Valige kuhu liikuda: ", choices = liikumine)
+    vajutati = buttonbox("Valige kuhu liikuda: ", choices =liikumine)
     if vajutati == "otse":
-        vajutati = buttonbox("Liikusite otse, valige kuhu liikuda:", choices=liikumine)
+        vajutati = buttonbox("Liikusite otse, valige kuhu liikuda:", choices =liikumine)
     elif vajutati == "paremale":
         vajutati = buttonbox("Liikusite paremale, valige kuhu liikuda:", choices=liikumine)
     elif vajutati == "vasakule":
         vajutati = buttonbox("Liikusite vasakule, valige kuhu liikuda:", choices=liikumine)
     elif vajutati == "tagasi":
         vajutati = buttonbox("Liikusite tagasi, valige kuhu liikuda:", choices=liikumine)
-
-    
     
