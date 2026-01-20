@@ -10,10 +10,6 @@ class Karakter:
     def kaotaElusi(self, kogus: int):
         self.elud -= kogus
 
-    def lisaElusi(self, kogus: int):
-        self.elud += kogus
-
-
 class Vaenlane:
     def __init__(self, elud: int, tugevus: int):
         self.elud = elud
@@ -30,20 +26,25 @@ laburint = [
     [0,1,0,0,1,1,1,1],
     [1,1,1,0,1,0,1,0],
     [1,0,1,0,1,0,0,0],
-    [1,0,0,0,1,1,1,1], # Siin on võit x=7, y=6
+    [1,0,0,0,1,1,1,1], # Võit siin lõpus x = 7, y =6
     [1,1,1,1,1,0,0,0]
 ]
-
-mangija = Karakter("Kangelane", 20, 5)
-vaenlane1 = Vaenlane(10, 3)
-vaenlane2 = Vaenlane(15, 4)
-
-vaenlased = {(1, 2): vaenlane1, (6, 6): vaenlane2}
 
 x = 0
 y = 0
 
 liikumine = ["üles", "alla", "vasakule", "paremale"]
+
+nimi = enterbox("Sisesta oma karakteri nimi:", "Karakteri nimi")
+elud = integerbox("Sisesta oma karakteri elud:", "Karakteri elud", lowerbound=1, upperbound=100)
+tugevus = integerbox("Sisesta oma karakteri tugevus:", "Karakteri tugevus", lowerbound=1, upperbound=20)
+
+mangija = Karakter(nimi, elud, tugevus)
+
+vaenlane1 = Vaenlane(10, 3)
+vaenlane2 = Vaenlane(15, 4)
+
+vaenlased = {(1, 2): vaenlane1, (6, 6): vaenlane2}
 
 while True:
     msgbox(f"Asukoht ({y+1}, {x+1})\nElud: {mangija.elud}")
@@ -82,3 +83,4 @@ while True:
         if mangija.elud <= 0:
             msgbox("Sa surid")
             sys.exit()
+
