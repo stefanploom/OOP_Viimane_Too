@@ -36,8 +36,8 @@ y = 0
 liikumine = ["üles", "alla", "vasakule", "paremale"]
 
 nimi = enterbox("Sisesta oma karakteri nimi:", "Karakteri nimi")
-elud = integerbox("Sisesta oma karakteri elud:", "Karakteri elud", lowerbound=1, upperbound=100)
-tugevus = integerbox("Sisesta oma karakteri tugevus:", "Karakteri tugevus", lowerbound=1, upperbound=20)
+elud = integerbox("Sisesta oma karakteri elud (1-100):", "Karakteri elud", lowerbound=1, upperbound=100)
+tugevus = integerbox("Sisesta oma karakteri tugevus (1-20):", "Karakteri tugevus", lowerbound=1, upperbound=20)
 
 mangija = Karakter(nimi, elud, tugevus)
 
@@ -73,8 +73,11 @@ while True:
 
     if (x, y) in vaenlased:
         v = vaenlased[(x, y)]
-        mangija.kaotaElusi(v.tugevus)
-        v.kaotaElusi(mangija.tugevus)
+
+        while mangija.elud > 0 and v.elud > 0:
+            mangija.kaotaElusi(v.tugevus)
+            v.kaotaElusi(mangija.tugevus)
+            msgbox(f"Võitlus!\nSinu elud: {mangija.elud}\nVaenlase elud: {v.elud}")
 
         if v.elud <= 0:
             msgbox("Vaenlane suri")
@@ -83,4 +86,3 @@ while True:
         if mangija.elud <= 0:
             msgbox("Sa surid")
             sys.exit()
-
